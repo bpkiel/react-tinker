@@ -1,19 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-const Screen = () => {
-    const [number, setNumber] = useState('0');
+const Screen = ({callback, number}) => {
+    // const [number, setNumber] = useState('0');
+
+    //Todo: Since screen is not a parent to the number buttons or the operator buttons,
+    // how do you pass a function to those components to update the state of the screen?
 
     return (
         <input
             className='screen'
             value={number}
-            id='number'
+            id='screen'
             placeholder="0"
-            type='text'
-            maxLength='8'
-            pattern="\d*"
-            //TODO Add onfocus and start intial state at 0
-            onChange={e => setNumber(e.target.value)}
+            type='number'
+            onFocus={() => callback('')}
+            onChange={e => callback(e.target.value)}
         />
     )
 };

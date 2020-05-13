@@ -1,7 +1,7 @@
 import React from 'react';
 import NumberButton from './NumberButton';
 
-const NumberButtonContainer = () => {
+const NumberButtonContainer = ({callback, currentNum}) => {
 
     const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 
@@ -12,6 +12,10 @@ const NumberButtonContainer = () => {
                     key={number}
                     zeroClass={number === 0 ? `button-${number}` : ''}
                     number={number}
+                    handleButtonClick={e => {
+                        currentNum === '0' ? currentNum = '' : currentNum;
+                        currentNum.length < 8 ? callback(currentNum + number.toString()) : currentNum;
+                    }}
                 />
             ))}
         </div>

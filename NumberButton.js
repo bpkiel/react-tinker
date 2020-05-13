@@ -1,11 +1,13 @@
 import React from 'react';
 
-const NumberButton = (props) => {
-
+const NumberButton = ({zeroClass, number, handleButtonClick}) => {
     return (
-        // <button className='number-button'>{props.number}</button>
-        <button className={`number-btn ${props.zeroClass}`}>{props.number}</button>
-
+        <button
+            className={`number-btn ${zeroClass}`}
+            onClick={handleButtonClick}
+        >
+            {number}
+        </button>
     )
 };
 
