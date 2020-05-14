@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-const OperatorButton = (props) => {
-    const[firstNumber, setFirstNumber] = useState('0');
-    // const [operator, setOperator] = useState('');
-
+const OperatorButton = ({ operator, operatorClass, handleButtonClick }) => {
     return (
         <button
-            className={`operator-btn ${props.operatorClass}`}>{props.operator}
-            {/*onClick={e => setFirstNumber(document.getElementById('screen').value}*/}
+            className={`operator-btn ${operatorClass}`}
+            onClick={handleButtonClick}
+        >
+            {operator}
         </button>
     )
 };

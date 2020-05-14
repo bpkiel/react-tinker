@@ -5,6 +5,7 @@ const NumberButton = ({zeroClass, number, handleButtonClick}) => {
         <button
             className={`number-btn ${zeroClass}`}
             onClick={handleButtonClick}
+            
         >
             {number}
         </button>
