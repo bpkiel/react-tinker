@@ -1,7 +1,7 @@
 import React from 'react';
 import NumberButton from './NumberButton';
 
-const NumberButtonContainer = ({ firstNumCallback, secondNumCallback, firstNum, secondNum, currentOperator}) => {
+const NumberButtonContainer = ({ firstNumCallback, secondNumCallback, firstNum, secondNum, currentOperator }) => {
 
     const numbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 
@@ -14,9 +14,10 @@ const NumberButtonContainer = ({ firstNumCallback, secondNumCallback, firstNum, 
                     number={number}
                     handleButtonClick={e => {
                         if (currentOperator === '') {
-                            firstNum === '0' || currentOperator !== '' ? firstNum = '' : firstNum;
+                            firstNum === '0' ? firstNum = '' : firstNum;
                             firstNum.length < 8 ? firstNumCallback(firstNum + number.toString()) : firstNum;
                         } else {
+                            secondNum ? secondNum = '' : secondNum;
                             secondNum.length < 8 ? secondNumCallback(secondNum + number.toString()) : secondNum;
                         }
                     }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import OperatorButton from './OperatorButton';
 
-const OperatorButtonContainer = ({ currentOperator, operatorCallback, runCalcCallback }) => {
+const OperatorButtonContainer = ({ operatorCallback, runCalcCallback }) => {
 
     const operators = ['+', '-', '/', '*', '='];
 
@@ -13,7 +13,8 @@ const OperatorButtonContainer = ({ currentOperator, operatorCallback, runCalcCal
                     operatorClass={`operator-${operator}`}
                     operator={operator}
                     handleButtonClick={e => {
-                        operator !== '=' ? operatorCallback(operator) : runCalcCallback() }
+                        operator !== '=' ? operatorCallback(operator) : runCalcCallback();
+                        }
                     }
                 />
             ))}

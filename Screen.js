@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Screen = ({callback, firstNum, secondNum, currentOperator}) => {
+const Screen = ({callback, firstNum, secondNum}) => {
 
     return (
         <input
             className='screen'
-            value={ currentOperator === '' ? firstNum : secondNum }
+            value={secondNum === '' ? firstNum : secondNum}
             id='screen'
             placeholder="0"
             type='number'

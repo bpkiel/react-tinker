@@ -5,8 +5,7 @@ import OperatorButtonContainer from './OperatorButtonContainer';
 
 const Calculator = () => {
     const [screenFirstNumber, setScreenFirstNumber] = useState('0');
-    const [screenSecondNumber, setScreenSecondNumber] = useState(screenFirstNumber);
-    // const [screenNumber, setScreenNumber] = useState('0');
+    const [screenSecondNumber, setScreenSecondNumber] = useState('');
     const [operator, setOperator] = useState('');
 
     let saveFirstNum = (operator, currentNum) => {
@@ -14,32 +13,24 @@ const Calculator = () => {
     }
 
     const runCalc = () => {
-        debugger;
-        setScreenNumber(parseInt(screenFirstNumber) * parseInt(screenSecondNumber));
 
-        // switch(operator) {
-        //     case 'x':
-        //         setScreenNumber(firstNum * secondNum;
-        //         screen.innerHTML = finalValue;
-        //         break;
-        //     case '/':
-        //         finalValue = firstNumberFinal / secondNumberFinal;
-        //         screen.innerHTML = finalValue;
-        //         break;
-        //     case '-':
-        //         finalValue = firstNumberFinal - secondNumberFinal;
-        //         screen.innerHTML = finalValue;
-        //         break;
-        //     case '+':
-        //         finalValue = parseInt(firstNumberFinal) + parseInt(secondNumberFinal);
-        //         screen.innerHTML = finalValue;
-        //         break;
-        // }
-
-        console.log('running calc function')
+        switch(operator) {
+            case '*':
+                setScreenSecondNumber(screenFirstNumber * screenSecondNumber);
+                break;
+            case '/':
+                   setScreenSecondNumber(screenFirstNumber / screenSecondNumber);
+                break;
+            case '-':
+                   setScreenSecondNumber(screenFirstNumber - screenSecondNumber);
+                break;
+            case '+':
+                   setScreenSecondNumber(+screenFirstNumber + +screenSecondNumber);
+                break;
+        }
     }
 
-    return(
+    return (
         <div className='calc-wrapper'>
             <div>
                 <Screen
@@ -57,7 +48,13 @@ const Calculator = () => {
                     currentOperator={operator}
                 />
             </div>
-            <OperatorButtonContainer  operatorCallback={saveFirstNum} runCalcCallback={runCalc}/>
+            <OperatorButtonContainer
+                operatorCallback={saveFirstNum}
+                runCalcCallback={runCalc}
+                secondNumCallback={setScreenSecondNumber}
+                firstNum={screenFirstNumber}
+            />
+
         </div>
     )
 };
